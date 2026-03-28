@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clipboard Copy Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    
+    <header>
+      <div class="logo">CC</div>
+      <div>
+        <h1 id="title">Clipboard Copy Tool</h1>
+        <p class="lead">
+          Click a button to copy text to the clipboard using the Clipboard API (with a fallback).
+        </p>
+      </div>
+    </header>
+
+    <!-- How it works -->
+    <section>
+      <h2>How it works</h2>
+      <p>Select any field and click the “Copy” button to quickly copy content to your clipboard.</p>
+    </section>
+
+    <!-- Instructions -->
+    <section>
+      <h3>Instructions</h3>
+      <ul>
+        <li>Click "Copy" next to any field</li>
+        <li>Text will be copied instantly</li>
+        <li>Works best on modern browsers</li>
+      </ul>
+      <p class="muted">Tip: You can also press Ctrl + C after selecting text.</p>
+      <p class="muted">⚠ Clipboard API works only on HTTPS or localhost.</p>
+    </section>
+
+    <section class="panel">
+
+      <!-- Short Text -->
+      <label class="field">
+        <span class="label">Short text</span>
+        <div class="row">
+          <input id="shortText" type="text" value="Hello, copy me!" />
+          <button class="btn copy-btn" data-copy-target="#shortText" aria-label="Copy short text">Copy</button>
+        </div>
+      </label>
+
+      <!-- Email -->
+      <label class="field">
+        <span class="label">Email</span>
+        <div class="row">
+          <input id="email" type="email" value="user@example.com" />
+          <button class="btn copy-btn" data-copy-target="#email" aria-label="Copy email">Copy</button>
+        </div>
+      </label>
+
+      <!-- URL -->
+      <label class="field">
+        <span class="label">Website URL</span>
+        <div class="row">
+          <input id="url" type="url" value="https://example.com" />
+          <button class="btn copy-btn" data-copy-target="#url" aria-label="Copy URL">Copy</button>
+        </div>
+      </label>
+
+      <!-- Password -->
+      <label class="field">
+        <span class="label">Password</span>
+        <div class="row">
+          <input id="password" type="password" value="mypassword123" />
+          <button class="btn copy-btn" data-copy-target="#password" aria-label="Copy password">Copy</button>
+        </div>
+      </label>
+
+      <!-- Message -->
+      <label class="field">
+        <span class="label">Multi-line / message</span>
+        <div class="row">
+          <textarea id="message" rows="3">This is a longer message you can copy to clipboard.</textarea>
+          <button class="btn copy-btn" data-copy-target="#message" aria-label="Copy message">Copy</button>
+        </div>
+      </label>
+
+      <!-- Notes -->
+      <label class="field">
+        <span class="label">Custom Notes</span>
+        <div class="row">
+          <textarea id="notes" rows="3" placeholder="Write something to copy..."></textarea>
+          <button class="btn copy-btn" data-copy-target="#notes" aria-label="Copy notes">Copy</button>
+        </div>
+      </label>
+
+      <!-- Code Block -->
+      <label class="field">
+        <span class="label">Code snippet</span>
+        <pre class="code-block" id="codeBlock" tabindex="0">
+<code>const sum = (a, b) => a + b;</code>
+        </pre>
+        <div class="button-group">
+          <button class="btn copy-btn" data-copy-target="#codeBlock" aria-label="Copy code">Copy code</button>
+          <button class="btn" id="copyAll">Copy All Fields</button>
+          <button class="btn" id="clearAll">Clear All</button>
+        </div>
+      </label>
+
+      <!-- Status -->
+      <div id="status" class="muted" aria-live="polite">
+        Ready to copy.
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Clipboard Tool | Built for learning and productivity</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
