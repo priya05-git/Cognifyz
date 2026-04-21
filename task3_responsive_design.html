@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cognifyz Internship | Task 3 – Responsive Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;1,300;1,700&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    /* ─── CSS Variables ─── */
+    :root {
+      --bg: #faf8f4;
+      --fg: #1a1612;
+      --accent: #3a5eff;
+      --warm: #ff6b35;
+      --card: #fff;
+      --border: #e4dfd6;
+      --muted: #8a8278;
+      --gutter: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'IBM Plex Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ─── HEADER ─── */
+    .site-header {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 18px var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: #3a5eff; }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px; background: #fff;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 96px var(--gutter) 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-text .badge {
+      display: inline-block;
+      background: #e8f0ff;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 40px;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .hero-text h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 4.5vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .hero-text h1 em { font-style: italic; color: var(--warm); }
+    .hero-text p { font-size: 17px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; font-weight: 300; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(58,94,255,0.3); }
+    .hero-visual {
+      background: linear-gradient(135deg, #e8f0ff 0%, #ffeee8 100%);
+      border-radius: 8px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .device-stack {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .device {
+      background: #fff;
+      border-radius: 6px;
+      border: 2px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .device-bar { height: 8px; background: var(--border); }
+    .device-screen { padding: 8px; }
+    .device-line { height: 6px; background: var(--border); border-radius: 3px; margin-bottom: 6px; }
+    .device-line.short { width: 60%; }
+    .device.desktop { width: 140px; height: 100px; }
+    .device.tablet { width: 90px; height: 120px; }
+    .device.mobile { width: 50px; height: 90px; }
+    .device-label {
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ─── CARDS SECTION ─── */
+    .section {
+      padding: 72px var(--gutter);
+      border-bottom: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 48px;
+      letter-spacing: -0.5px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 32px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.07); }
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .card p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    /* ─── MEDIA QUERY VISUALIZER ─── */
+    .mq-section {
+      padding: 72px var(--gutter);
+    }
+    .mq-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+    }
+    .mq-table th {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 14px 20px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-align: left;
+    }
+    .mq-table td {
+      padding: 16px 20px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .mq-table tr:last-child td { border-bottom: none; }
+    .mq-table code {
+      background: #e8f0ff;
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-family: 'IBM Plex Sans', monospace;
+    }
+    .mq-table .active-row td { background: #f0f5ff; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--fg);
+      color: rgba(255,255,255,0.5);
+      padding: 24px var(--gutter);
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* ════════════════════════════════════
+       MEDIA QUERIES — The Heart of Task 3
+    ════════════════════════════════════ */
+
+    /* Tablet: ≤ 960px */
+    @media (max-width: 960px) {
+      :root { --gutter: 36px; }
+
+      .nav-links { gap: 20px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+      .hero-visual { min-height: 200px; }
+
+      .cards { grid-template-columns: repeat(2, 1fr); }
+
+      .mq-table .desktop-only { display: none; }
+    }
+
+    /* Mobile: ≤ 640px */
+    @media (max-width: 640px) {
+      :root { --gutter: 20px; }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-text h1 { font-size: 32px; }
+
+      .cards { grid-template-columns: 1fr; }
+
+      .device.desktop { display: none; }
+      .device.tablet { display: none; }
+
+      .section { padding: 48px var(--gutter); }
+      .mq-section { padding: 48px var(--gutter); }
+
+      footer { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">Cogni<span>fyz</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <span class="badge">Level 2 · Intermediate · Task 3</span>
+      <h1>Design That Fits <em>Every</em> Screen</h1>
+      <p>Responsive design uses media queries to detect the user's screen size and apply the appropriate layout — from desktop wide-screens to compact mobile displays.</p>
+      <a href="#learn" class="btn">Resize Me →</a>
+    </div>
+    <div class="hero-visual">
+      <div style="text-align:center;">
+        <div class="device-stack" style="justify-content:center;">
+          <div>
+            <div class="device desktop">
+              <div class="device-bar"></div>
+              <div class="device-screen">
+                <div class="device-line"></div>
+                <div class="device-line short"></div>
+                <div class="device-line"></div>
+              </div>
+            </div>
+            <div class="device-label">Desktop</div>
+          </div>
+          <div>
+            <div class="device tablet">
+              <div class="device-bar"></div>
+              <div class="device-screen">
+                <div class="device-line"></div>
+                <div class="device-line short"></div>
+              </div>
+            </div>
+            <div class="device-label">Tablet</div>
+          </div>
+          <div>
+            <div class="device mobile">
+              <div class="device-bar"></div>
+              <div class="device-screen">
+                <div class="device-line"></div>
+              </div>
+            </div>
+            <div class="device-label">Mobile</div>
+          </div>
+        </div>
+        <p style="margin-top:20px;font-size:12px;color:var(--muted);">Resize browser to see layout shift</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="learn">
+    <p class="section-label">Responsive Principles</p>
+    <h2 class="section-title">Three Pillars of Adaptability</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon" style="background:#e8f0ff;">📐</div>
+        <h3>Fluid Grids</h3>
+        <p>Use percentage-based widths instead of fixed pixels so layouts stretch and compress relative to the viewport.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#ffeee8;">🖼️</div>
+        <h3>Flexible Images</h3>
+        <p>Set <code style="background:#f0f0f0;padding:1px 6px;border-radius:3px;font-size:12px;">max-width: 100%</code> on images so they never overflow their containers on small screens.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#e8ffee;">📱</div>
+        <h3>Media Queries</h3>
+        <p>CSS rules that activate at specific viewport breakpoints — the core mechanism of responsive web design.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mq-section">
+    <p class="section-label">Breakpoints Used in This Page</p>
+    <h2 class="section-title" style="font-family:'Fraunces',serif;font-size:34px;font-weight:700;letter-spacing:-0.5px;margin-bottom:0;">Media Query Reference</h2>
+    <table class="mq-table">
+      <thead>
+        <tr>
+          <th>Breakpoint</th>
+          <th>Target</th>
+          <th>Changes Applied</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="active-row">
+          <td><code>≤ 960px</code></td>
+          <td>Tablet</td>
+          <td>Single-column hero, 2-column cards, reduced gutter</td>
+        </tr>
+        <tr>
+          <td><code>≤ 640px</code></td>
+          <td>Mobile</td>
+          <td>1-column cards, hamburger nav, smaller heading, hidden devices</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <span>Cognifyz Technologies — Front-End Internship Program</span>
+    <span>Task 3 of 8 · Level 2: Intermediate</span>
+  </footer>
+
+</body>
+</html>

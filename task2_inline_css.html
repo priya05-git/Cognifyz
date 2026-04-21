@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cognifyz Internship | Task 2 – Inline CSS Styling</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body style="margin:0;padding:0;background:#0e0e14;font-family:'Syne',sans-serif;color:#e8e4d9;min-height:100vh;">
+
+  <!-- NAV BAR -->
+  <nav style="display:flex;justify-content:space-between;align-items:center;padding:20px 52px;border-bottom:1px solid #2a2a38;background:#0e0e14;">
+    <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:3px;color:#7b7b9a;text-transform:uppercase;">Cognifyz · Task 02</span>
+    <span style="background:#e5fc3c;color:#0e0e14;font-size:11px;font-weight:700;letter-spacing:2px;padding:6px 14px;text-transform:uppercase;">Inline CSS</span>
+  </nav>
+
+  <!-- HERO -->
+  <header style="padding:80px 52px 60px;position:relative;overflow:hidden;border-bottom:1px solid #2a2a38;">
+    <!-- ghost label -->
+    <div style="position:absolute;top:0;right:30px;font-family:'Syne',sans-serif;font-size:180px;font-weight:800;color:rgba(229,252,60,0.04);line-height:1;pointer-events:none;user-select:none;">CSS</div>
+
+    <p style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#e5fc3c;margin-bottom:20px;font-family:'Space Mono',monospace;">Level 1 · Beginner</p>
+    <h1 style="font-family:'Syne',sans-serif;font-size:clamp(40px,6vw,80px);font-weight:800;line-height:1.05;margin:0 0 24px;letter-spacing:-2px;max-width:700px;">
+      Style Is
+      <span style="color:#e5fc3c;">Power.</span>
+    </h1>
+    <p style="font-size:18px;line-height:1.7;color:#8e8ea8;max-width:520px;font-weight:400;">Inline CSS places style attributes directly on HTML elements — no separate stylesheet needed. It's raw, direct, and perfect for understanding how CSS fundamentally works.</p>
+  </header>
+
+  <!-- INLINE CSS SHOWCASE CARDS -->
+  <section style="padding:60px 52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+
+    <!-- Card 1: Font Color -->
+    <article style="background:#16161f;border:1px solid #2a2a38;border-radius:4px;padding:36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:4px;height:100%;background:#e5fc3c;"></div>
+      <p style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#7b7b9a;text-transform:uppercase;margin-bottom:20px;">Property #01</p>
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:16px;color:#e8e4d9;">Font Color</h2>
+      <p style="color:#7b7b9a;font-size:14px;line-height:1.7;margin-bottom:24px;">The <code style="background:#0e0e14;padding:2px 8px;border-radius:3px;color:#e5fc3c;font-size:12px;">color</code> property sets the text color of an element.</p>
+      <!-- Live demo -->
+      <div style="background:#0e0e14;border-radius:4px;padding:20px;border:1px solid #2a2a38;">
+        <p style="color:#ff4d6d;font-size:15px;margin-bottom:8px;">style="color: <span style="color:#ff4d6d;">#ff4d6d</span>"</p>
+        <p style="color:#4dffd2;font-size:15px;margin-bottom:8px;">style="color: <span style="color:#4dffd2;">#4dffd2</span>"</p>
+        <p style="color:#e5fc3c;font-size:15px;">style="color: <span style="color:#e5fc3c;">#e5fc3c</span>"</p>
+      </div>
+    </article>
+
+    <!-- Card 2: Font Size -->
+    <article style="background:#16161f;border:1px solid #2a2a38;border-radius:4px;padding:36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:4px;height:100%;background:#4dffd2;"></div>
+      <p style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#7b7b9a;text-transform:uppercase;margin-bottom:20px;">Property #02</p>
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:16px;color:#e8e4d9;">Font Size</h2>
+      <p style="color:#7b7b9a;font-size:14px;line-height:1.7;margin-bottom:24px;">The <code style="background:#0e0e14;padding:2px 8px;border-radius:3px;color:#4dffd2;font-size:12px;">font-size</code> property scales the text to any measurement.</p>
+      <div style="background:#0e0e14;border-radius:4px;padding:20px;border:1px solid #2a2a38;">
+        <p style="font-size:12px;color:#e8e4d9;margin-bottom:8px;">font-size: 12px — Small</p>
+        <p style="font-size:18px;color:#e8e4d9;margin-bottom:8px;">font-size: 18px — Medium</p>
+        <p style="font-size:28px;color:#e8e4d9;line-height:1.2;">font-size: 28px — Large</p>
+      </div>
+    </article>
+
+    <!-- Card 3: Background Color -->
+    <article style="background:#16161f;border:1px solid #2a2a38;border-radius:4px;padding:36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:4px;height:100%;background:#ff4d6d;"></div>
+      <p style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#7b7b9a;text-transform:uppercase;margin-bottom:20px;">Property #03</p>
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:16px;color:#e8e4d9;">Background Color</h2>
+      <p style="color:#7b7b9a;font-size:14px;line-height:1.7;margin-bottom:24px;">The <code style="background:#0e0e14;padding:2px 8px;border-radius:3px;color:#ff4d6d;font-size:12px;">background-color</code> property fills an element's background.</p>
+      <div style="background:#0e0e14;border-radius:4px;padding:20px;border:1px solid #2a2a38;display:flex;flex-direction:column;gap:8px;">
+        <div style="background-color:#e5fc3c;color:#0e0e14;padding:10px 14px;font-size:13px;font-weight:700;border-radius:2px;">background-color: #e5fc3c</div>
+        <div style="background-color:#4dffd2;color:#0e0e14;padding:10px 14px;font-size:13px;font-weight:700;border-radius:2px;">background-color: #4dffd2</div>
+        <div style="background-color:#ff4d6d;color:#fff;padding:10px 14px;font-size:13px;font-weight:700;border-radius:2px;">background-color: #ff4d6d</div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- CODE EXAMPLE STRIP -->
+  <section style="padding:0 52px 60px;">
+    <div style="background:#16161f;border:1px solid #2a2a38;border-radius:4px;overflow:hidden;">
+      <div style="background:#2a2a38;padding:14px 24px;display:flex;align-items:center;gap:8px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff4d6d;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#e5fc3c;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#4dffd2;display:inline-block;"></span>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;color:#7b7b9a;margin-left:12px;">index.html · Inline CSS Applied</span>
+      </div>
+      <pre style="margin:0;padding:32px;font-family:'Space Mono',monospace;font-size:13px;line-height:1.9;color:#8e8ea8;overflow-x:auto;"><span style="color:#7b7b9a;">&lt;!-- Inline CSS applied directly to HTML elements --&gt;</span>
+
+<span style="color:#4dffd2;">&lt;h1</span> <span style="color:#e5fc3c;">style</span>="<span style="color:#ff4d6d;">color: #0e0e14; font-size: 48px; background-color: #e5fc3c;</span>"<span style="color:#4dffd2;">&gt;</span>
+  Hello, Cognifyz!
+<span style="color:#4dffd2;">&lt;/h1&gt;</span>
+
+<span style="color:#4dffd2;">&lt;p</span> <span style="color:#e5fc3c;">style</span>="<span style="color:#ff4d6d;">color: #4dffd2; font-size: 18px;</span>"<span style="color:#4dffd2;">&gt;</span>
+  This paragraph has teal-colored text at 18px.
+<span style="color:#4dffd2;">&lt;/p&gt;</span>
+
+<span style="color:#4dffd2;">&lt;div</span> <span style="color:#e5fc3c;">style</span>="<span style="color:#ff4d6d;">background-color: #ff4d6d; color: #fff; padding: 16px;</span>"<span style="color:#4dffd2;">&gt;</span>
+  A div with a red background and white text.
+<span style="color:#4dffd2;">&lt;/div&gt;</span></pre>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:24px 52px;border-top:1px solid #2a2a38;display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-family:'Space Mono',monospace;font-size:11px;color:#7b7b9a;letter-spacing:2px;text-transform:uppercase;">Cognifyz Front-End Internship</span>
+    <span style="font-family:'Space Mono',monospace;font-size:11px;color:#7b7b9a;letter-spacing:2px;">Task 2 of 8</span>
+  </footer>
+
+</body>
+</html>

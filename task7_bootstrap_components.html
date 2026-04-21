@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cognifyz Internship | Task 7 – Component-Based Styling</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ─── Custom Theme on top of Bootstrap ─── */
+    :root {
+      --bs-primary: #0f4c81;
+      --bs-primary-rgb: 15,76,129;
+      --brand: #0f4c81;
+      --brand-light: #e8f0fa;
+      --brand-accent: #f0a500;
+      --bs-body-font-family: 'Nunito', sans-serif;
+      --bs-font-sans-serif: 'Nunito', sans-serif;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f4f7fc;
+    }
+
+    /* Navbar custom */
+    .navbar-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--brand) !important;
+    }
+    .navbar-brand span { color: var(--brand-accent); }
+    .nav-link { font-weight: 600; color: #444 !important; font-size: 14px; }
+    .nav-link:hover { color: var(--brand) !important; }
+    .nav-link.active { color: var(--brand) !important; }
+
+    /* Hero / Jumbotron */
+    .hero-section {
+      background: linear-gradient(135deg, #0f4c81 0%, #1a6ebf 60%, #0f4c81 100%);
+      color: #fff;
+      padding: 88px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      left: -60px; bottom: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(240,165,0,0.1);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .hero-title em { font-style: italic; color: var(--brand-accent); }
+    .hero-subtitle {
+      font-size: 17px;
+      opacity: 0.82;
+      max-width: 520px;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    /* Section headings */
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brand);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px;
+      color: #111;
+      margin-bottom: 40px;
+    }
+
+    /* Feature cards */
+    .feature-card {
+      background: #fff;
+      border: 1px solid #e4eaf5;
+      border-radius: 12px;
+      padding: 32px 28px;
+      height: 100%;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(15,76,129,0.1); }
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: var(--brand-light);
+      color: var(--brand);
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .feature-card h5 { font-weight: 800; color: #111; margin-bottom: 10px; font-size: 17px; }
+    .feature-card p { font-size: 14px; color: #666; line-height: 1.7; font-weight: 400; margin: 0; }
+
+    /* Stats bar */
+    .stats-bar {
+      background: var(--brand);
+      color: #fff;
+      padding: 40px 0;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      color: var(--brand-accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label { font-size: 13px; opacity: 0.75; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* Accordion custom */
+    .accordion-item { border: 1px solid #e4eaf5 !important; border-radius: 8px !important; margin-bottom: 12px; overflow: hidden; }
+    .accordion-button { font-weight: 700; color: #111; font-size: 15px; }
+    .accordion-button:not(.collapsed) { color: var(--brand); background: var(--brand-light); box-shadow: none; }
+    .accordion-button:focus { box-shadow: none; }
+
+    /* Progress bars */
+    .skill-label { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .skill-label span { font-size: 13px; font-weight: 700; color: #333; }
+    .skill-label small { font-size: 12px; color: var(--brand); font-weight: 700; }
+    .progress { height: 8px; border-radius: 4px; margin-bottom: 20px; background: #e4eaf5; }
+    .progress-bar { border-radius: 4px; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: #e4eaf5; }
+    .tl-item { position: relative; margin-bottom: 28px; }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -32px; top: 5px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--brand);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--brand);
+    }
+    .tl-item h6 { font-weight: 800; font-size: 14px; color: #111; margin-bottom: 4px; }
+    .tl-item p { font-size: 13px; color: #888; line-height: 1.6; margin: 0; font-weight: 400; }
+
+    /* Footer */
+    .site-footer { background: #0a1628; color: rgba(255,255,255,0.6); padding: 48px 0 28px; }
+    .footer-brand { font-family: 'DM Serif Display', serif; font-size: 24px; color: #fff; margin-bottom: 12px; }
+    .footer-brand span { color: var(--brand-accent); }
+    .footer-link { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; display: block; margin-bottom: 6px; font-weight: 400; }
+    .footer-link:hover { color: #fff; }
+    .footer-divider { border-color: rgba(255,255,255,0.1); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR (Bootstrap component) -->
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Cogni<span>fyz</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+          <li class="nav-item ms-2">
+            <a class="btn btn-sm px-4 py-2" href="#" style="background:var(--brand);color:#fff;border-radius:6px;font-weight:700;">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="hero-badge"><i class="bi bi-stars me-2"></i>Level 4 · Expert · Task 7</span>
+          <h1 class="hero-title">Bootstrap-Powered <em>Components</em></h1>
+          <p class="hero-subtitle">Using Bootstrap 5's component system — navbar, cards, accordion, badges, progress bars — with custom theming to match a unique brand identity.</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#features" class="btn btn-warning fw-bold px-5 py-3" style="color:#000;border-radius:8px;">Explore Components</a>
+            <a href="#timeline" class="btn btn-outline-light fw-600 px-5 py-3" style="border-radius:8px;">Task Breakdown</a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-end">
+          <div class="d-flex flex-column gap-3" style="opacity:0.9;">
+            <span class="badge bg-warning text-dark px-4 py-3 fs-6">Bootstrap 5</span>
+            <span class="badge bg-light text-dark px-4 py-3 fs-6" style="margin-left:32px;">Custom CSS</span>
+            <span class="badge bg-warning text-dark px-4 py-3 fs-6" style="margin-left:16px;">Responsive Grid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Tasks Total</div></div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Levels</div></div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Required</div></div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Learning</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE CARDS (Bootstrap Grid + Cards) -->
+  <section class="py-5 my-4" id="features">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-eyebrow">Bootstrap Components</p>
+        <h2 class="section-title">What We Built With Bootstrap</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-grid-3x3-gap-fill"></i></div>
+            <h5>Responsive Grid</h5>
+            <p>Bootstrap's 12-column grid system makes layout adaption across breakpoints automatic and clean.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-toggles"></i></div>
+            <h5>Navigation Bar</h5>
+            <p>The Navbar component handles mobile collapsing, sticky behaviour, and brand logo placement out of the box.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-tags-fill"></i></div>
+            <h5>Badges & Pills</h5>
+            <p>Bootstrap badges communicate status, categories, and counts — consistently styled across the interface.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-bar-chart-fill"></i></div>
+            <h5>Progress Bars</h5>
+            <p>Animated progress bars show completion percentages in a visually clear and accessible manner.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-chevron-expand"></i></div>
+            <h5>Accordion</h5>
+            <p>The Accordion component provides collapsible FAQ sections without writing any JavaScript manually.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-palette-fill"></i></div>
+            <h5>Custom Theming</h5>
+            <p>CSS variables override Bootstrap defaults — keeping the framework but expressing a unique brand identity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCORDION (Bootstrap component) -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-6">
+          <p class="section-eyebrow">FAQ</p>
+          <h2 class="section-title">Common Questions</h2>
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  What is component-based styling?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" style="font-size:14px;color:#555;line-height:1.7;">
+                  It means building UIs from reusable, self-contained pieces. Each component (button, card, nav) is styled consistently and can be dropped into any page without extra work.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  Why Bootstrap for this task?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" style="font-size:14px;color:#555;line-height:1.7;">
+                  Bootstrap provides a battle-tested component library, responsive grid, and accessibility helpers — demonstrating how CSS frameworks speed up professional development.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  Can I override Bootstrap styles?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" style="font-size:14px;color:#555;line-height:1.7;">
+                  Absolutely. Bootstrap uses CSS custom properties which you can override in <code>:root</code>, and you can write your own classes to extend or override any component style.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills / Progress bars -->
+        <div class="col-lg-6">
+          <p class="section-eyebrow">Skill Progress</p>
+          <h2 class="section-title">Internship Coverage</h2>
+          <div>
+            <div class="skill-label"><span>HTML Structure</span><small>100%</small></div>
+            <div class="progress"><div class="progress-bar" style="width:100%;background:var(--brand);"></div></div>
+
+            <div class="skill-label"><span>CSS Styling</span><small>90%</small></div>
+            <div class="progress"><div class="progress-bar" style="width:90%;background:#1a6ebf;"></div></div>
+
+            <div class="skill-label"><span>Responsive Design</span><small>85%</small></div>
+            <div class="progress"><div class="progress-bar" style="width:85%;background:var(--brand-accent);"></div></div>
+
+            <div class="skill-label"><span>JavaScript</span><small>75%</small></div>
+            <div class="progress"><div class="progress-bar" style="width:75%;background:#0f4c81;"></div></div>
+
+            <div class="skill-label"><span>API Integration</span><small>70%</small></div>
+            <div class="progress"><div class="progress-bar" style="width:70%;background:#1a6ebf;"></div></div>
+
+            <div class="skill-label"><span>Bootstrap Framework</span><small>80%</small></div>
+            <div class="progress"><div class="progress-bar" style="width:80%;background:var(--brand-accent);"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="py-5" id="timeline">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-eyebrow">Task Breakdown</p>
+        <h2 class="section-title">All 8 Tasks at a Glance</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="timeline">
+            <div class="tl-item"><h6>Task 1 · Basic HTML Page</h6><p>HTML skeleton with headings, paragraphs, and image.</p></div>
+            <div class="tl-item"><h6>Task 2 · Inline CSS Styling</h6><p>Font color, size, and background applied inline.</p></div>
+            <div class="tl-item"><h6>Task 3 · Responsive Design</h6><p>Media queries for tablet and mobile breakpoints.</p></div>
+            <div class="tl-item"><h6>Task 4 · Interactive Button</h6><p>JavaScript click handler changing background color.</p></div>
+            <div class="tl-item"><h6>Task 5 · API Integration</h6><p>fetch() with JSONPlaceholder, dynamic DOM update.</p></div>
+            <div class="tl-item"><h6>Task 6 · Form Validation</h6><p>Client-side validation with visual feedback.</p></div>
+            <div class="tl-item"><h6>Task 7 · Component-Based Styling</h6><p>Bootstrap 5 with custom theme overrides. ← You are here</p></div>
+            <div class="tl-item"><h6>Task 8 · CSS Preprocessing</h6><p>Sass variables, nesting, and compiled stylesheet.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Bootstrap Grid) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5 mb-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">Cogni<span>fyz</span></div>
+          <p style="font-size:13px;line-height:1.7;">Leading technology company specializing in data science, AI, and ML solutions.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;font-weight:700;">Links</p>
+          <a class="footer-link" href="#">Home</a>
+          <a class="footer-link" href="#">About</a>
+          <a class="footer-link" href="#">Services</a>
+          <a class="footer-link" href="#">Contact</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;font-weight:700;">Internship</p>
+          <a class="footer-link" href="#">Tasks</a>
+          <a class="footer-link" href="#">Submission</a>
+          <a class="footer-link" href="#">Certificate</a>
+        </div>
+        <div class="col-lg-4">
+          <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;font-weight:700;">Contact</p>
+          <p class="footer-link">cognifyztechnologies@gmail.com</p>
+          <p class="footer-link">www.cognifyz.com</p>
+          <p class="footer-link">@cognifyz_tech</p>
+        </div>
+      </div>
+      <hr class="footer-divider"/>
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span class="footer-copy">© 2024 Cognifyz Technologies. All rights reserved.</span>
+        <span class="footer-copy">Task 7 of 8 · Level 4: Expert</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

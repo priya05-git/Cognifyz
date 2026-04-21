@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cognifyz Internship | Task 8 – CSS Preprocessing (Sass)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;600;700&family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!--
+  ════════════════════════════════════════════════════════════════
+  TASK 8: CSS PREPROCESSING WITH SASS
+  This file demonstrates compiled Sass output.
+  
+  The Sass source (styles.scss) would look like:
+  
+  // ── Variables ─────────────────────────
+  $bg-dark:       #0a0a0f;
+  $bg-surface:    #13131c;
+  $border:        #1e1e2e;
+  $accent-pink:   #f72585;
+  $accent-cyan:   #4cc9f0;
+  $accent-yellow: #f8b400;
+  $text:          #e8e6f0;
+  $muted:         #6a6880;
+  $radius:        10px;
+  $transition:    all 0.25s ease;
+  
+  // ── Mixins ────────────────────────────
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin card-base {
+    background: $bg-surface;
+    border: 1px solid $border;
+    border-radius: $radius;
+    padding: 32px;
+  }
+  
+  @mixin respond-to($breakpoint) {
+    @if $breakpoint == 'mobile' {
+      @media (max-width: 640px) { @content; }
+    } @else if $breakpoint == 'tablet' {
+      @media (max-width: 960px) { @content; }
+    }
+  }
+  
+  // ── Nesting ───────────────────────────
+  .feature-card {
+    @include card-base;
+    transition: $transition;
+    
+    &:hover {
+      border-color: $accent-pink;
+      transform: translateY(-4px);
+    }
+    
+    .card-icon {
+      @include flex-center;
+      width: 48px;
+      height: 48px;
+      border-radius: $radius;
+    }
+    
+    h3 { color: $text; font-size: 18px; }
+    p  { color: $muted; font-size: 14px; }
+  }
+  
+  // compiled with: sass styles.scss styles.css
+  ════════════════════════════════════════════════════════════════
+  -->
+
+  <style>
+    /* ════════════════════════════════════════════
+       COMPILED CSS from styles.scss
+       (Sass variables → CSS custom properties)
+    ═════════════════════════════════════════════ */
+
+    /* ── Variables compiled from $vars ── */
+    :root {
+      --bg-dark:       #0a0a0f;
+      --bg-surface:    #13131c;
+      --bg-surface2:   #1a1a28;
+      --border:        #1e1e2e;
+      --accent-pink:   #f72585;
+      --accent-cyan:   #4cc9f0;
+      --accent-yellow: #f8b400;
+      --accent-green:  #06d6a0;
+      --text:          #e8e6f0;
+      --muted:         #6a6880;
+      --radius:        10px;
+      --transition:    all 0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Base from body { } ── */
+    body {
+      background: var(--bg-dark);
+      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Nested .header > .header__inner ── */
+    .header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,15,0.9);
+      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+      color: var(--text);
+    }
+    .header__logo span { color: var(--accent-pink); }
+    .header__tag {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+
+    /* ── Compiled from .hero { ... } with nesting ── */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 52px 72px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero__kicker {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: 20px;
+    }
+    .hero__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 8vw, 100px);
+      letter-spacing: 2px;
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+    .hero__title .pink { color: var(--accent-pink); }
+    .hero__title .cyan { color: var(--accent-cyan); }
+    .hero__sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── Sass mixin: @mixin card-base compiled ── */
+    /* (.feature-card uses card-base + hover nesting) */
+    .cards-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 52px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      /* @include card-base compiled: */
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      /* other props */
+      transition: var(--transition);
+    }
+    /* & :hover compiled to .feature-card:hover */
+    .feature-card:hover {
+      border-color: var(--accent-pink);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(247,37,133,0.12);
+    }
+    /* .feature-card .card-icon { ... } — nested */
+    .feature-card .card-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 { color: var(--text); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .feature-card p { color: var(--muted); font-size: 14px; line-height: 1.65; font-weight: 300; }
+
+    /* ── Code comparison section ── */
+    .code-section {
+      border-top: 1px solid var(--border);
+      background: #08080d;
+    }
+    .code-section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 52px;
+    }
+    .code-section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .code-section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .code-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .code-pane {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .code-pane-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .code-pane-header .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .code-pane-header .label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: 6px;
+    }
+    pre.code-body {
+      padding: 24px;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 12px;
+      line-height: 1.9;
+      overflow-x: auto;
+      color: #c8c6d8;
+      max-height: 380px;
+      overflow-y: auto;
+    }
+    pre.code-body::-webkit-scrollbar { width: 4px; }
+    pre.code-body::-webkit-scrollbar-track { background: transparent; }
+    pre.code-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .kw { color: var(--accent-pink); }
+    .val { color: var(--accent-cyan); }
+    .com { color: #3e3d55; }
+    .mix { color: var(--accent-yellow); }
+    .sel { color: var(--accent-green); }
+    .prop { color: #c8c6d8; }
+
+    /* ── Sass features showcase ── */
+    .features-band {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .features-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 52px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .feat-tile {
+      background: var(--bg-surface);
+      padding: 36px 28px;
+    }
+    .feat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .feat-tile h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feat-tile p { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 52px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-family: 'Azeret Mono', monospace;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── @mixin respond-to('mobile') compiled ── */
+    @media (max-width: 960px) {
+      .code-compare { grid-template-columns: 1fr; }
+      .features-band-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .header__inner, .hero, .cards-grid, .code-section-inner, footer { padding-left: 20px; padding-right: 20px; }
+      .features-band-inner { grid-template-columns: 1fr; padding: 0; }
+      .feat-tile { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__logo">Cogni<span>fyz</span></div>
+      <div class="header__tag">Task 8 · CSS Preprocessing · Sass</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="hero__kicker">// Level 4 · Expert · Task 8</p>
+    <h1 class="hero__title">
+      <span class="pink">Sass</span><br>
+      <span class="cyan">Preprocessed.</span>
+    </h1>
+    <p class="hero__sub">Variables, mixins, nesting, and compilation — the Sass workflow that elevates plain CSS into a maintainable, scalable design system.</p>
+  </section>
+
+  <!-- Feature cards (compiled from .feature-card with @include card-base) -->
+  <div class="cards-grid">
+    <div class="feature-card">
+      <div class="card-icon" style="background:rgba(247,37,133,0.12);color:var(--accent-pink);">$</div>
+      <h3>Sass Variables</h3>
+      <p>Define colors, sizes, and font-stacks once in <code style="color:var(--accent-cyan);font-size:12px;">$vars</code> — reuse everywhere. Change a value in one place and the entire design updates.</p>
+    </div>
+    <div class="feature-card">
+      <div class="card-icon" style="background:rgba(76,201,240,0.12);color:var(--accent-cyan);">@</div>
+      <h3>Mixins</h3>
+      <p>Reusable blocks of CSS logic. <code style="color:var(--accent-cyan);font-size:12px;">@mixin</code> + <code style="color:var(--accent-cyan);font-size:12px;">@include</code> eliminates copy-paste and makes patterns composable.</p>
+    </div>
+    <div class="feature-card">
+      <div class="card-icon" style="background:rgba(248,180,0,0.12);color:var(--accent-yellow);">{ }</div>
+      <h3>Nesting</h3>
+      <p>Write child selectors inside their parent, mirroring your HTML hierarchy for better readability and less repetition.</p>
+    </div>
+    <div class="feature-card">
+      <div class="card-icon" style="background:rgba(6,214,160,0.12);color:var(--accent-green);">⚙</div>
+      <h3>Compilation</h3>
+      <p>Sass compiles <code style="color:var(--accent-cyan);font-size:12px;">styles.scss → styles.css</code>. The browser only ever sees clean, standard CSS.</p>
+    </div>
+  </div>
+
+  <!-- Sass features band -->
+  <div class="features-band">
+    <div class="features-band-inner">
+      <div class="feat-tile">
+        <div class="feat-num" style="color:var(--accent-pink);">01</div>
+        <h4>Variables</h4>
+        <p>Store values like <code style="font-size:12px;color:var(--accent-cyan);">$brand-color</code> once and reference them throughout the stylesheet.</p>
+      </div>
+      <div class="feat-tile">
+        <div class="feat-num" style="color:var(--accent-cyan);">02</div>
+        <h4>Nesting</h4>
+        <p>Mirror DOM structure in your CSS. The <code style="font-size:12px;color:var(--accent-cyan);">&</code> symbol references the parent selector.</p>
+      </div>
+      <div class="feat-tile">
+        <div class="feat-num" style="color:var(--accent-yellow);">03</div>
+        <h4>Mixins</h4>
+        <p>Parameterisable blocks of CSS. Pass arguments to generate different outputs from a single definition.</p>
+      </div>
+      <div class="feat-tile">
+        <div class="feat-num" style="color:var(--accent-green);">04</div>
+        <h4>Partials</h4>
+        <p>Split your CSS into <code style="font-size:12px;color:var(--accent-cyan);">_variables.scss</code>, <code style="font-size:12px;color:var(--accent-cyan);">_mixins.scss</code> files and <code style="font-size:12px;color:var(--accent-cyan);">@use</code> them.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Code comparison: Sass source vs Compiled CSS -->
+  <section class="code-section">
+    <div class="code-section-inner">
+      <h2 class="code-section-title">Source vs Compiled</h2>
+      <p class="code-section-sub">The left panel shows the Sass source. The right panel shows the CSS output after compilation.</p>
+      <div class="code-compare">
+
+        <!-- SASS SOURCE -->
+        <div class="code-pane">
+          <div class="code-pane-header">
+            <div class="dot" style="background:#f72585;"></div>
+            <div class="dot" style="background:#f8b400;"></div>
+            <div class="dot" style="background:#06d6a0;"></div>
+            <span class="label">styles.scss — Sass Source</span>
+          </div>
+          <pre class="code-body"><span class="com">// ── Variables</span>
+<span class="kw">$accent-pink</span>: <span class="val">#f72585</span>;
+<span class="kw">$accent-cyan</span>: <span class="val">#4cc9f0</span>;
+<span class="kw">$bg-surface</span>:  <span class="val">#13131c</span>;
+<span class="kw">$border</span>:      <span class="val">#1e1e2e</span>;
+<span class="kw">$radius</span>:      <span class="val">10px</span>;
+<span class="kw">$transition</span>:  <span class="val">all 0.25s ease</span>;
+
+<span class="com">// ── Mixin definition</span>
+<span class="mix">@mixin</span> <span class="sel">card-base</span> {
+  background: <span class="kw">$bg-surface</span>;
+  border: 1px solid <span class="kw">$border</span>;
+  border-radius: <span class="kw">$radius</span>;
+  padding: <span class="val">32px</span>;
+}
+
+<span class="com">// ── Nested selector with &</span>
+<span class="sel">.feature-card</span> {
+  <span class="mix">@include</span> card-base;
+  transition: <span class="kw">$transition</span>;
+
+  <span class="com">// & = .feature-card</span>
+  <span class="sel">&amp;:hover</span> {
+    border-color: <span class="kw">$accent-pink</span>;
+    transform: translateY(<span class="val">-4px</span>);
+  }
+
+  <span class="sel">.card-icon</span> {
+    width: <span class="val">48px</span>;
+    height: <span class="val">48px</span>;
+  }
+
+  <span class="sel">h3</span> { color: <span class="kw">$accent-cyan</span>; }
+  <span class="sel">p</span>  { color: <span class="val">#6a6880</span>; }
+}
+
+<span class="com">// ── Compile: sass styles.scss styles.css</span></pre>
+        </div>
+
+        <!-- COMPILED CSS OUTPUT -->
+        <div class="code-pane">
+          <div class="code-pane-header">
+            <div class="dot" style="background:#4cc9f0;"></div>
+            <div class="dot" style="background:#4cc9f0;opacity:0.5;"></div>
+            <div class="dot" style="background:#4cc9f0;opacity:0.25;"></div>
+            <span class="label">styles.css — Compiled Output</span>
+          </div>
+          <pre class="code-body"><span class="com">/* compiled from styles.scss */</span>
+
+<span class="sel">.feature-card</span> {
+  <span class="prop">background</span>:   <span class="val">#13131c</span>;
+  <span class="prop">border</span>:       <span class="val">1px solid #1e1e2e</span>;
+  <span class="prop">border-radius</span>:<span class="val">10px</span>;
+  <span class="prop">padding</span>:      <span class="val">32px</span>;
+  <span class="prop">transition</span>:   <span class="val">all 0.25s ease</span>;
+}
+<span class="com">/* $vars resolved, @include expanded */</span>
+
+<span class="sel">.feature-card:hover</span> {
+  <span class="prop">border-color</span>: <span class="val">#f72585</span>;
+  <span class="prop">transform</span>:    <span class="val">translateY(-4px)</span>;
+}
+<span class="com">/* &:hover → .feature-card:hover */</span>
+
+<span class="sel">.feature-card .card-icon</span> {
+  <span class="prop">width</span>:  <span class="val">48px</span>;
+  <span class="prop">height</span>: <span class="val">48px</span>;
+}
+<span class="com">/* nested .card-icon expanded */</span>
+
+<span class="sel">.feature-card h3</span> {
+  <span class="prop">color</span>: <span class="val">#4cc9f0</span>;
+}
+<span class="sel">.feature-card p</span> {
+  <span class="prop">color</span>: <span class="val">#6a6880</span>;
+}
+<span class="com">/* all $vars replaced with values */</span></pre>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Cognifyz Front-End Internship · CSS Preprocessing</span>
+    <span>Task 8 of 8 · Level 4: Expert</span>
+  </footer>
+
+</body>
+</html>

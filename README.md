@@ -1,123 +1,60 @@
-📋 Clipboard Copy Tool
+# Cognifyz Technologies - Front-End Internship Program
 
-✨ A sleek, modern clipboard utility built with HTML, CSS (Glassmorphism), and JavaScript using the Clipboard API + fallback support.
+Welcome to the repository for the **Cognifyz Technologies Front-End Internship Program**. This project consists of a series of 8 tasks designed to progressively build and demonstrate foundational to advanced front-end web development skills. Each task is contained within its own corresponding HTML file and focuses on a specific aspect of web development.
 
-🌐 Live Demo
+## 🚀 Tasks Overview
 
-🚀 Try it locally:
+The internship program is structured into 8 distinct tasks, taking you from basic HTML structure to advanced styling and API integration.
 
-git clone https://github.com/yourusername/clipboard-copy-tool.git
-cd clipboard-copy-tool
-open index.html
+### Level 1: Beginner to Intermediate
 
-⚠️ Clipboard API works best on HTTPS or localhost
+1. **Task 1: Basic HTML Page (`task1_basic_html.html`)**
+   - **Focus:** HTML fundamentals, document structure, and semantic tags.
+   - **Description:** A foundational task exploring the bare bones of the web, demonstrating how basic HTML tags are used to build the skeleton of a webpage.
 
-✨ Features
+2. **Task 2: Inline CSS (`task2_inline_css.html`)**
+   - **Focus:** Basic styling using Inline CSS.
+   - **Description:** An introduction to CSS, applying styles directly within HTML elements to understand basic color, font, and layout adjustments.
 
-✔️ Copy text, emails, URLs, passwords, notes & code snippets
+3. **Task 3: Responsive Design (`task3_responsive_design.html`)**
+   - **Focus:** Media queries and flexible layouts.
+   - **Description:** Implementation of responsive design principles ensuring the webpage adapts beautifully to different screen sizes, from mobile devices to desktop monitors.
 
-✔️ One-click Copy All Fields
+4. **Task 4: Interactive Button (`task4_interactive_button.html`)**
+   - **Focus:** User interaction and basic JavaScript/CSS effects.
+   - **Description:** Creating engaging elements like hover effects, transitions, and interactive buttons to enhance the user experience.
 
-✔️ Clear All Fields instantly
+5. **Task 5: API Integration (`task5_api_integration.html`)**
+   - **Focus:** JavaScript Fetch API and asynchronous data handling.
+   - **Description:** Connecting the front-end to an external API to fetch and display dynamic content, introducing the asynchronous nature of web applications.
 
-✔️ Clipboard API with fallback support
+6. **Task 6: Form Validation (`task6_form_validation.html`)**
+   - **Focus:** Client-side validation using HTML5 and JavaScript.
+   - **Description:** Building robust user input forms with validation to ensure data integrity and provide immediate feedback to users.
 
-✔️ Accessible ARIA live status updates
+7. **Task 7: Bootstrap Components (`task7_bootstrap_components.html`)**
+   - **Focus:** Utilizing CSS frameworks.
+   - **Description:** Implementing pre-styled components and responsive grid layouts using the Bootstrap framework to accelerate the development process.
 
-✔️ Beautiful glassmorphism UI + animated gradients
+8. **Task 8: SASS Preprocessing (`task8_sass_preprocessing.html`)**
+   - **Focus:** Advanced CSS techniques with SASS.
+   - **Description:** Using SASS (Syntactically Awesome Style Sheets) to write maintainable, structured, and modular CSS using variables, mixins, and nesting. 
 
-✔️ Fully responsive (mobile-friendly)
+## 🛠️ Technologies Used
 
+- **HTML5:** For creating the structure of the web pages.
+- **CSS3:** For styling, layouts, and responsive design (including Media Queries and SASS).
+- **JavaScript (ES6):** For DOM manipulation, API integration, and form validation.
+- **Bootstrap:** For utilizing pre-built UI components and grid system.
+- **SASS:** For advanced CSS preprocessing.
 
-⚙️ Tech Stack
+## 💻 How to Run
 
-HTML5 – Structure
+Since these are static frontend files, no special server or build step is required to view them.
 
-CSS3 – Glassmorphism, animations, responsiveness
+1. Clone or download this repository to your local machine.
+2. Open the folder containing the files.
+3. Simply double-click any of the HTML files (e.g., `task1_basic_html.html`) to open them in your default web browser.
 
-JavaScript (ES6+) – Clipboard logic
-
-📂 Project Structure
-
-clipboard-copy-tool/
-
-│── index.html         # Main UI structure
-
-│── styles.css        # Glassmorphism styling
-
-│── script.js        # Clipboard functionality
-
-└── README.md       # Documentation
-
-🖱 Usage
-
-Action	How
-
-Copy single field	Click Copy button
-
-Copy all	Click Copy All Fields
-
-Clear all	Click Clear All
-
-Manual copy	Ctrl + C / Cmd + C
-
-🎨 UI Highlights
-
-💎 Glassmorphism effects (blur + transparency)
-
-🌈 Animated gradient backgrounds
-
-✨ Glow effects & soft shadows
-
-📱 Fully responsive layout
-
-♿ Accessibility
-
-ARIA live regions for status updates
-
-Keyboard-friendly interactions
-
-Clear visual feedback
-
-🚀 Future Improvements
-
-🔐 Password visibility toggle
-
-🌙 Dark/Light mode switch
-
-📋 Copy history panel
-
-🔔 Toast notifications
-
-📱 Haptic feedback (mobile vibration)
-
-🤝 Contributing
-
-Contributions are welcome!
-
-# Fork the repo
-
-# Create a new branch
-
-git checkout -b feature-name
-
-# Make changes & commit
-
-git commit -m "Add new feature"
-
-# Push changes
-
-git push origin feature-name
-
-Then open a Pull Request 🚀
-
-⭐ Support
-
-If you like this project:
-
-👉 Star the repo
-👉 Contribute improvements
-
-📝 License
-
-Licensed under the MIT License.
+---
+*This repository is maintained as part of the Cognifyz Technologies Front-End Internship Program.*

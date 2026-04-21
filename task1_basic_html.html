@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cognifyz Internship | Task 1 – Basic HTML Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --paper: #f5f0e8;
+      --accent: #c8522a;
+      --muted: #7a7060;
+      --rule: #d4c9b0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* Masthead */
+    .masthead {
+      border-bottom: 3px double var(--ink);
+      padding: 18px 60px 14px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      background: var(--paper);
+    }
+    .masthead .pub-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .masthead .edition {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* Hero headline */
+    .hero {
+      padding: 60px 60px 40px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: 'TASK 01';
+      position: absolute;
+      top: 20px; right: 40px;
+      font-family: 'Playfair Display', serif;
+      font-size: 100px;
+      font-weight: 900;
+      color: rgba(0,0,0,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .kicker {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .kicker::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 6vw, 78px);
+      font-weight: 900;
+      line-height: 1.05;
+      max-width: 680px;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    .deck {
+      font-size: 18px;
+      line-height: 1.65;
+      max-width: 560px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* Three-column layout */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 2px 1fr 2px 1fr;
+      gap: 0;
+      padding: 48px 60px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .col-divider { background: var(--rule); }
+    .col { padding: 0 32px; }
+    .col:first-child { padding-left: 0; }
+    .col:last-child { padding-right: 0; }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--ink);
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.72;
+      color: #2a2520;
+      margin-bottom: 14px;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      padding: 40px 60px;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .pull-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--ink);
+      flex: 1;
+      border-left: 4px solid var(--accent);
+      padding-left: 28px;
+    }
+
+    /* Image section */
+    .image-feature {
+      padding: 40px 60px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .image-feature h2 {
+      border: none;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 12px;
+    }
+    .img-card {
+      aspect-ratio: 4/3;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .img-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(15%) contrast(1.05);
+    }
+    .img-card .caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 10px 12px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .img-card:first-child { grid-row: span 2; aspect-ratio: auto; min-height: 300px; }
+
+    /* Footer strip */
+    footer {
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 3px double var(--ink);
+    }
+    footer p { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin: 0; }
+    .tag {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+
+    @media (max-width: 768px) {
+      .masthead, .hero, .columns, .pull-quote, .image-feature, footer { padding-left: 24px; padding-right: 24px; }
+      .columns { grid-template-columns: 1fr; }
+      .col-divider { display: none; }
+      .col { padding: 0; margin-bottom: 32px; }
+      .image-grid { grid-template-columns: 1fr 1fr; }
+      .img-card:first-child { grid-column: span 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <span class="pub-name">Cognifyz Technologies · Internship</span>
+    <span class="edition">Level 1 · Task 1 · Basic HTML</span>
+  </header>
+
+  <section class="hero">
+    <p class="kicker">Front-End Development</p>
+    <h1>Building the <em>Web's</em> Foundation</h1>
+    <p class="deck">Every great website begins with a single HTML file. Here we explore the fundamental building blocks — structure, semantics, and the elegant simplicity of markup that speaks directly to the browser.</p>
+  </section>
+
+  <section class="columns">
+    <article class="col">
+      <h2>What is HTML?</h2>
+      <p>HTML, the HyperText Markup Language, is the backbone of the World Wide Web. It gives structure and meaning to raw content — turning plain text into a rich, navigable document that browsers can render and users can experience.</p>
+      <p>Every element you see on a webpage — headings, paragraphs, images, links — exists because an HTML tag defined it. This is where every front-end journey begins.</p>
+    </article>
+    <div class="col-divider"></div>
+    <article class="col">
+      <h2>Core Tags</h2>
+      <p>The <code style="background:#e8e0d0;padding:2px 6px;border-radius:3px;font-size:13px;">&lt;html&gt;</code> tag wraps the entire document. Inside it, <code style="background:#e8e0d0;padding:2px 6px;border-radius:3px;font-size:13px;">&lt;head&gt;</code> carries metadata invisible to the reader — the page title, character encoding, and linked resources — while <code style="background:#e8e0d0;padding:2px 6px;border-radius:3px;font-size:13px;">&lt;body&gt;</code> holds everything visible.</p>
+      <p>Together, these three tags form the skeleton upon which all web content is built. They are non-negotiable and universal.</p>
+    </article>
+    <div class="col-divider"></div>
+    <article class="col">
+      <h2>Why It Matters</h2>
+      <p>Semantic HTML isn't just about getting things to display — it's about communicating intent. Screen readers, search engines, and future developers all rely on well-structured markup to understand what content means, not just how it looks.</p>
+      <p>Writing clean HTML is the first act of respect toward every person who will ever encounter your work on the web.</p>
+    </article>
+  </section>
+
+  <section class="pull-quote">
+    <blockquote>"The web is built on the idea that anyone, anywhere, should be able to share information." — Tim Berners-Lee</blockquote>
+    <span class="tag">HTML Basics</span>
+  </section>
+
+  <section class="image-feature">
+    <h2>Visual Reference</h2>
+    <div class="image-grid">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" alt="Code on screen"/>
+        <span class="caption">Markup in Action</span>
+      </div>
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&q=80" alt="Web structure"/>
+        <span class="caption">Structure</span>
+      </div>
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80" alt="Developer at work"/>
+        <span class="caption">Developer's View</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Cognifyz Technologies — Front-End Internship Program</p>
+    <p>Task 1 of 8 · Level 1: Beginner</p>
+  </footer>
+
+</body>
+</html>
